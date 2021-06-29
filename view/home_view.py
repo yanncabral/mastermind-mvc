@@ -14,8 +14,10 @@ def home_screen_view(canvas, select_level1, select_level2, select_level3, load):
     
     def get_file(_):
         f = tkinter.filedialog.askopenfile(title='Carregar jogo', filetypes=[("Mastermind files", ".mastermind")])
-        if not load(f):
+        if not f:
             tkinter.messagebox.showerror(title="Erro", message="Arquivo inválido")
+        else:
+            load(f)
 
     for i in range(9):
         for j in range(2, 6):
